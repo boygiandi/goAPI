@@ -6,8 +6,8 @@ var admin = require('firebase-admin');
 var db = null;
 var args = process.argv.slice(2);
 if ( args[0]==='local' ) {
-	var serviceAccount = require("../gostream-admin.json");
-	const adminConfig = JSON.parse(process.env.FIREBASE_CONFIG);
+	const serviceAccount = require("./firebase-admin.json");
+	const adminConfig = process.env.FIREBASE_CONFIG?JSON.parse(process.env.FIREBASE_CONFIG):config.firebase;
 	adminConfig.credential = admin.credential.cert(serviceAccount);
 	admin.initializeApp(adminConfig);
 } else {

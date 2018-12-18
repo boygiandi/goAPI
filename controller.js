@@ -25,7 +25,7 @@ class Controller {
 	validRequest(req) {
 		if ( !req.query['time'] || !req.query['sig'] )
 			return {"error": "invalid_checksum"};
-		if this.config.request_timeout:
+		if ( this.config.request_timeout )
 			if ( req.query['now']-parseInt(req.query['time'])>this.config.request_timeout )
 				return {"error": "invalid_request_time", "current": req.query['now']};
 		let tmp_string = req.query['time'] + this.config['secret_string'];

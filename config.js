@@ -13,7 +13,10 @@ const  Config = {
 		"invalid_checksum"		: [103, "Invalid checksum"]
 	},
 	request_timeout: 60,
-	debug: true
+	debug: true,
+	firebase: {
+		databaseURL: "https://gostream-838c9.firebaseio.com"
+	}
 }
 
 module.exports = Config;
