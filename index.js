@@ -17,6 +17,18 @@ var db = admin.firestore();
 db.settings({timestampsInSnapshots: true});
 
 var app = express();
+app.use (function(req, res, next) {
+    var data='';
+    req.setEncoding('utf8');
+    req.on('data', function(chunk) { 
+       data += chunk;
+    });
+
+    req.on('end', function() {
+        req.body = data;
+        next();
+    });
+});
 
 function serve(controll, action, args) {
 	if ( !controller[controll] )
