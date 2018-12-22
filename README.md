@@ -5,5 +5,6 @@ To install, just clone this project and run
 `npm install`
 
 All your logic code will be stored in `classes/` folder.
+To test it locally, run `node index.js local`
 
-This API alse work fine with Firebase cloud function. We supported Firestore trigger.
+This API alse work fine with Firebase cloud function. Config your firebase project in `firebase-admin.json`
